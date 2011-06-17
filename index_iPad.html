@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>appML demo</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+<link rel="stylesheet" href="css/hicTech/MobileAppStyle.css"/>
+<style type="text/css" media="all">@import "themes/jqt/theme.css";</style>
+
+<script type="text/javascript" charset="utf-8" src="js/jquery/jquery-1.4.4-hicVersion-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/plugins/livequery/jquery.livequery-1.0.3.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/plugins/add2home/add2home.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/hicTech/appManager.js"></script>
+
+
+<script>
+function appMLReady(){
+
+    // overlay demo
+    $('#overlay_alert').bind('click', function(e, data){
+    	appML.appManagerShowDialog({message:"<div style='padding:3px 10px 3px 10px'>This is a custom scrollable alert box!<br/><font style='font-size:17px'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</font></div>",title:"Alert"});
+    });
+
+    $('#overlay_confirm').bind('click', function(e, data){
+		appML.appManagerShowDialog({
+        	message:"<div style='text-align:center'>This is a custom confirm box with callbacks and scroll area</div>",
+			type                   : "confirm",
+			denyCallback		   : function(){alert("denyCallback")},
+			confirmCallback        : function(){alert("confirmCallback")},
+			title                  : "Confirm"
+		});
+    });	
+}
+
+</script>
+
+
+</head>
+
+<body data-appml-onload="appMLReady()">
+
+<appml>
+	<loading></loading>
+	
+	<add2home></add2home>
+	<left width="260px"></left>
+
+	<content>
+	
+		<navigation height="44px"></navigation>
+			
+		<panel id="features" title="appML" icon="00-appML.png">
+		
+			<page id="list" title="homeTitle">
+				
+				
+				<ul>
+					<li class="box_title">appML features</li>
+					<li class="arrow"><a href="#id_list1">Back button titling</a></li>
+					<li class="arrow"><a href="#" id="overlay_alert">Alert</a></li>
+					<li class="arrow"><a href="#" id="overlay_confirm">Confirm</a></li>
+					<li class="arrow"><a href="#form">Form<br/></a></li>
+					<li class="arrow"><a href="#effects">Fixed effects on iPad<br/></a></li>
+					<li class="arrow"><a href="#buttons">Customized buttons<br/></a></li>
+					<li class="forward"><a href="#">Forward element<br/></a></li>
+				</ul>
+			
+			
+			
+				
+			</page>
+		
+			<page id="id_list1"  title="First">
+				<h2>First paragraph</h2>
+				<ul >
+					<li class="arrow"><a href="#id_list2">goto 2nd</a></li>
+				</ul>
+			</page>
+		
+			<page id="id_list2" title="Second">
+				<h2>Second paragraph</h2>
+				<ul >
+					<li class="arrow"><a href="#id_list3">go to 3rd</a></li>
+				</ul>
+			</page>
+		
+			<page id="id_list3"  title="Third">
+				<h2>Third paragraph</h2>
+			</page>
+			
+			
+			
+			
+			
+			
+			<page id="buttons" title="Buttons">
+
+
+				
+				<h2>Buttons</h2>
+				<ul class="individual">
+                	<li><a href="" target="_blank">Button</a></li>
+					<li><a href="" target="_blank">Button</a></li>
+	            </ul>
+				<p><br /><a href="#" class="grayButton">Button</a></p>
+				<p><br /><a href="#" class="whiteButton">Button</a></p>
+				<p><br /><a href="#" class="blueButton">Button</a></p>
+				<p><br /><a href="#" class="greenButton">Button</a></p>
+				<p><br /><a href="#" class="redButton">Button</a></p>
+				<p><br /><a href="#" class="purpleButton">Button</a></p>
+				<p><br /><a href="#" class="orangeButton">Button</a></p>
+				<p><br /><a href="#" class="azureButton">Button</a></p>
+
+				
+			</page>
+			
+			
+			
+			
+			
+		
+			<page id="form"  title="Form">
+				
+					
+						<ul class="form">
+		                	<li class="box_title">Form</li>
+		                    <li>
+		                        <div>
+		                            <div>Email:</div>
+		                            <div><input value="" type="email" name="input_test" placeholder="examples@site.com"/></div>
+		                        </div>
+		                    </li>
+		                    
+		                    <li>
+		                        <div>
+		                            <div>Text:</div>
+		                            <div><textarea></textarea></div>
+		                        </div>
+		                    </li>
+							
+		                    <li><input type="checkbox" name="some_name" value="Hello" id="some_name" title="first" data-appml-label="Check box"/></li>      
+							<li><input type="radio" title="Radio" data-appml-label="Radio"/></li>                
+		                    <li>
+		    					<div>
+		                            <div>Animals:</div>
+		                            <div>
+		                            	<select data-appml-title="Animals">
+		                               		<option value="dog">Dog</option>
+		                                    <option value="cat">Cat</option>
+		                                    <option value="fish" selected>Fish</option>
+		                                    <option value="lion">Lion</option>
+											<option value="leopard">Leopard</option>
+											<option value="bird">Bird</option>
+											<option value="snake">Snake</option>
+		                                </select>
+		                            </div>
+		                        </div>
+		                   </li>
+						</ul>   
+	               		<a style="color:rgba(0,0,0,.9);" href="#" class="whiteButton">Send</a>
+					
+				
+			</page>
+		
+			<page id="effects"  title="Effects">
+				<ul >
+	                <li class="arrow"><a href="#animdemo">Slide</a></li>
+	                <li class="arrow"><a class="slideup" href="#animdemo">Slide Up</a></li>
+	                <li class="arrow"><a class="dissolve" href="#animdemo">Dissolve</a></li>
+	                <li class="arrow"><a class="fade" href="#animdemo">Fade</a></li>
+	                <li class="arrow"><a class="flip" href="#animdemo">Flip</a></li>
+	                <li class="arrow"><a class="pop" href="#animdemo">Pop</a></li>
+	                <li class="arrow"><a class="swap" href="#animdemo">Swap (not fixed)</a></li>
+	                <li class="arrow"><a class="cube" href="#animdemo">Cube (not fixed)</a></li>
+	            </ul>
+			</page>
+
+			<page id="animdemo">
+				<div style="font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;">
+   					Pretty smooth, eh?            
+				</div>
+			</page>
+		
+		</panel>
+		
+					
+		
+		<panel id="carousel" title="Carousel" icon="42-photos.png">
+		
+			<page id="carousel_page" title="Carousel"> 
+				<div style="padding:0px 0px 0px 0px">
+					<div class="info" style="text-align:justify">
+					<div style="width:100%">
+						<div style="font-size:15px"><b>This is a carousel</b></div><br>
+						 Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et
+						  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+						   aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore 
+						   eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia 
+						   deserunt mollit anim id est laborum. <br><br><br>
+					</div>
+					
+					
+					<div style="margin:0px auto; width:260px;">
+						<carousel width="260" height="160">
+							<ul>
+								<li><strong>1.</strong> <em>A robot may not injure a human being or, through inaction, allow a human being to come to harm.</em></li>
+								<li><strong>2.</strong> <em>A robot must obey any orders given to it by human beings, except where such orders would conflict with the First Law.</em></li>
+								<li><strong>3.</strong> <em>A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.</em></li>
+								<li><strong>Zeroth Law:</strong> <em>A robot may not harm humanity, or, by inaction, allow humanity to come to harm.</em></li>
+								<li><strong>Lyuben Dilov's Forth law:</strong> <em>A robot must establish its identity as a robot in all cases.</em></li>
+								<li><strong>Harry Harrison's Forth law:</strong> <em>A robot must reproduce</em></li>
+								<li><strong>Nikola Kesarovski's Fifth law:</strong> <em>A robot must know it is a robot.</em></li>
+							</ul>
+						</carousel>
+					</div>
+					<div style=" clear:both">
+						<div style="width:100%">
+							<div style="font-size:15px"><b>This is a vertical carousel</b></div><br>
+						 	Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+							 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. 
+							 Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+							 obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br><br><br>
+						</div>
+					</div>
+					
+					<div style="margin:0px auto; width:260px;">
+						<carousel width="260" height="160" direction="vertical">
+							<ul>
+								<li><strong>1.</strong> <em>A robot may not injure a human being or, through inaction, allow a human being to come to harm.</em></li>
+								<li><strong>2.</strong> <em>A robot must obey any orders given to it by human beings, except where such orders would conflict with the First Law.</em></li>
+								<li><strong>3.</strong> <em>A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.</em></li>
+								<li><strong>Zeroth Law:</strong> <em>A robot may not harm humanity, or, by inaction, allow humanity to come to harm.</em></li>
+								<li><strong>Lyuben Dilov's Forth law:</strong> <em>A robot must establish its identity as a robot in all cases.</em></li>
+								<li><strong>Harry Harrison's Forth law:</strong> <em>A robot must reproduce</em></li>
+								<li><strong>Nikola Kesarovski's Fifth law:</strong> <em>A robot must know it is a robot.</em></li>
+							</ul>
+						</carousel>
+					</div>
+					
+					<div style=" clear:both">
+						<div style="width:100%">
+							<div style="font-size:15px"><b>Carousel with nested iScroll</b></div><br>
+						 	Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+							 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. 
+							 Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+							 obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br><br><br>
+						</div>
+					</div>
+					
+					<div style="margin:0px auto; width:260px;">
+						<carousel width="260" height="160">
+						<ul>				
+							<li><em>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</em></li>
+							
+							<li style="padding:0px;margin:0px;border:0px;">
+								<scrollable id="second" height="160">	
+									<div style="padding:0px 15px 0px 0px;margin:0px;border:0px;">
+										<div style="font-size:15px"><b>Try to scroll down this content</b></div><br/>
+										<div style="font-size:15px;color:#000;padding:0px;margin:0px;border:0px;width:260px;">
+											Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+											 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. 
+							 				Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+											 obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										</div>
+									</div>
+								</scrollable>
+							</li>
+						</ul>
+					</carousel>
+					</div>
+					
+				</div>
+				
+				</div>
+				
+			</page>
+			<toolbar></toolbar>
+
+		</panel>
+
+	</content>
+	
+	
+
+</appml>
+ 
+</body>
+</html> 
+
+
+
+
+
+		
