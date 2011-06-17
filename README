@@ -1,0 +1,14 @@
+It's is a modified version of AppML based of 0.9 REV005
+
+It add support for hastag to be added to urls (not used by phonegap directly)
+
+It add support for back button.
+
+Use the provided index_phonegap.html as base.
+
+Still under development to suit my need. And add more features.
+
+I use an android phone with cyanogen 7 (android 2.3.4)
+Maybe it affect the way phonegap works, maybe not.
+
+File issues if you find any, Thanks
